@@ -9,12 +9,25 @@
 <head>
     <meta charset="UTF-8">
     <title>National Park Geek</title>
-    <c:url value="/css/style.css" var="stylesheetUrl" />
-    <link rel="stylesheet" href="${stylesheetUrl}">
+    
+   
+  <c:url value="/css/site.css" var="cssUrl" />
+ <link rel="stylesheet" href="${cssUrl}"/> 
+ 
+   
 </head>
  <header>
         <c:url var="logoImage" value="/img/logo.png"/>
          <img src="${logoImage }" class="logoImage"/>
          <br>
+         
+<div class="topnav">
+  <a class="active" href="#Home">Home</a>
+  <a href="#Survey">Survey</a>
+</div>
+         
+         
  </header>
+ <body>
+ 
  

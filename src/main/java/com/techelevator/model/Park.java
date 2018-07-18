@@ -12,14 +12,15 @@ package com.techelevator.model;
 		private double milesOfTrail;
 		private int numberOfCampsites;
 		private String climate;
-		private String yearFounded;
+		private int yearFounded;
 		private int annualVisitorCount;
 		private String inspirationalQuote;
 		private String inspirationalQuoteSource;
 		private String parkDescription;
-		private BigDecimal entryFee;
+		private int entryFee;
 		private int numberOfAnimalSpecies;
-
+        private String imageName;
+        
 		public String getParkCode() {
 			return parkCode;
 		}
@@ -84,11 +85,11 @@ package com.techelevator.model;
 			this.climate = climate;
 		}
 
-		public String getYearFounded() {
+		public int getYearFounded() {
 			return yearFounded;
 		}
 
-		public void setYearFounded(String yearFounded) {
+		public void setYearFounded(int yearFounded) {
 			this.yearFounded = yearFounded;
 		}
 
@@ -100,35 +101,35 @@ package com.techelevator.model;
 			this.annualVisitorCount = annualVisitorCount;
 		}
 
-		public String getQuote() {
+		public String getInspirationalQuote() {
 			return inspirationalQuote;
 		}
 
-		public void setQuote(String inspirationalQuote) {
+		public void setInspirationalQuote(String inspirationalQuote) {
 			this.inspirationalQuote = inspirationalQuote;
 		}
 
-		public String getQuoteSource() {
+		public String getInspirationalQuoteSource() {
 			return inspirationalQuoteSource;
 		}
 
-		public void setQuoteSource(String inspirationalQuoteSource) {
+		public void setInspirationalQuoteSource(String inspirationalQuoteSource) {
 			this.inspirationalQuoteSource = inspirationalQuoteSource;
 		}
 
-		public String getDescription() {
+		public String getparkDescription() {
 			return parkDescription;
 		}
 
-		public void setDescription(String parkDescription) {
+		public void setparkDescription(String parkDescription) {
 			this.parkDescription = parkDescription;
 		}
 
-		public BigDecimal getEntryFee() {
+		public int getEntryFee() {
 			return entryFee;
 		}
 
-		public void setEntryFee(BigDecimal entryFee) {
+		public void setEntryFee(int entryFee) {
 			this.entryFee = entryFee;
 		}
 
@@ -139,5 +140,12 @@ package com.techelevator.model;
 		public void setNumberOfAnimalSpecies(int numberOfAnimalSpecies) {
 			this.numberOfAnimalSpecies = numberOfAnimalSpecies;
 		}
+		public String getImageName() {
+			return imageName;
+		}
+
+		public void setImageName(String imageName) {
+			imageName = "/img/parks/" + parkCode.toLowerCase() + ".jpg";
+		}		
 
 }
