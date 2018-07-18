@@ -140,12 +140,9 @@ package com.techelevator.model;
 		public void setNumberOfAnimalSpecies(int numberOfAnimalSpecies) {
 			this.numberOfAnimalSpecies = numberOfAnimalSpecies;
 		}
-		public String getImageName() {
-			return imageName;
-		}
 
-		public void setImageName(String imageName) {
-			imageName = "/img/parks/" + parkCode.toLowerCase() + ".jpg";
-		}		
+		public String getParkCodeLower() {
+			return parkCode.toLowerCase();
+		}
 
 }

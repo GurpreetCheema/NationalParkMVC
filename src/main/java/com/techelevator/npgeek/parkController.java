@@ -17,18 +17,19 @@ public class parkController {
 	
 	@RequestMapping(path="/",method=RequestMethod.GET)
 	public String showPark(ModelMap modelHolder) {
+		modelHolder.put("parks", parkDao.getAllParks());
 		return "park";
 	}
 
-	@RequestMapping(path="/", method=RequestMethod.GET)
-	public String showParkImage(ModelMap modelHolder) {
-		modelHolder.put("parks", parkDao.getAllParks());
-		
-		return "/park";
-	}
-
-	@RequestMapping(path="/park", method=RequestMethod.GET)
-	public String showparkImage() {
-		return "/park";
-	}
+//	@RequestMapping(path="/", method=RequestMethod.GET)
+//	public String showParkImage(ModelMap modelHolder) {
+//		modelHolder.put("parks", parkDao.getAllParks());
+//		
+//		return "/";
+//	}
+//
+//	@RequestMapping(path="/park", method=RequestMethod.GET)
+//	public String showparkImage() {
+//		return "/";
+//	}
 }

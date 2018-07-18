@@ -2,31 +2,20 @@
 
 <%@include file="common/header.jspf"%>
 
-<c:forEach var="park" items="${parks}">
+<c:url var="parksHomePageUrl" value="/"/>
+
+<c:forEach var="parks" items="${parks}">
 
 <div class=“imageForPark”>
-<c:url var="parkImgUrl" value="${park.imageName}" />
-<img src="${parkImgUrl}"/>
-
+<c:url var="parksImgUrl" value="/img/parks/${parks.parkCodeLower}.jpg" />
+<img src="${parksImgUrl}"/>
+<br/>
+<strong>${parks.parkName}</strong>
+<p>${parks.parkDescription}</p>
 
  </div>
 
-<%-- <div class="parkdescription">
-<a href="${parkLink }" ><c:out value="${parkInfo.parkName }"/></a>
-
-<p><c:out value="${parkInfo.parkDescription }"/></p>
-
-</div>
-
-</div> --%>
-
 </c:forEach>
-
-
-
-
-
-
 
 
 

@@ -8,9 +8,13 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Component;
 
+@Component
 public class JdbcParkDao implements ParkDao{
 private JdbcTemplate jdbcTemplate;
+
+
 	@Autowired
 	public JdbcParkDao(DataSource dataSource){
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
@@ -50,13 +54,13 @@ private JdbcTemplate jdbcTemplate;
 	private Park mapRowToPark(SqlRowSet results) {
 		Park park = new Park();
 
-		    park.setParkCode(results.getString("parkCode"));
-		    park.setParkName(results.getString("parkName"));
+		    park.setParkCode(results.getString("parkcode"));
+		    park.setParkName(results.getString("parkname"));
 		    park.setState(results.getString("state"));
 		    park.setAcreage(results.getInt("acreage"));
-		    park.setElevationInFeet(results.getInt("elevationInFeet"));
-		    park.setMilesOfTrail(results.getInt("milesOfTrail"));
-		    park.setNumberOfCampsites(results.getInt("numberOfCampsites"));
+		   // park.setElevationInFeet(results.getInt("elevationInFeet"));
+		    //park.setMilesOfTrail(results.getInt("milesOfTrail"));
+		    park.setNumberOfCampsites(results.getInt("numberofCampsites"));
 		    park.setClimate(results.getString("climate"));
 		    park.setYearFounded(results.getInt("yearFounded"));
 		    park.setAnnualVisitorCount(results.getInt("annualVisitorCount"));
@@ -65,7 +69,7 @@ private JdbcTemplate jdbcTemplate;
 		    park.setparkDescription(results.getString("parkDescription"));
 		    park.setEntryFee(results.getInt("entryFee"));
 		    park.setNumberOfAnimalSpecies(results.getInt("numberOfAnimalSpecies"));
-		    park.setImageName(results.getString("imageName"));
+		    //park.setImageName(results.getString("imageName"));
 		    
 		    return park;
 		}
