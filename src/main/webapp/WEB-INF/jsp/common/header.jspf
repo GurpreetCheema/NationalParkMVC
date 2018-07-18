@@ -1,0 +1,20 @@
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<!DOCTYPE html>
+<html>
+
+<!-- display the Logo and title of the website  -->
+<body>
+<head>
+    <meta charset="UTF-8">
+    <title>National Park Geek</title>
+    <c:url value="/css/style.css" var="stylesheetUrl" />
+    <link rel="stylesheet" href="${stylesheetUrl}">
+</head>
+ <header>
+        <c:url var="logoImage" value="/img/logo.png"/>
+         <img src="${logoImage }" class="logoImage"/>
+         <br>
+ </header>
+ 
