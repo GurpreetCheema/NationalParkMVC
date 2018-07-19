@@ -1,6 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@include file="common/header.jspf" %>
 
+
 <c:url var="submitSurvey" value="/survey"/>
 
 	<form:form action="${ submitSurvey}" modelAttribute="survey" method="POST" >
@@ -76,6 +77,15 @@
 	<option value="WY">Wyoming</option>
 </select>
 </p>	
+<form action="">
+<label for="activityLevel">Activity Level</label>
+  <input type="radio" name="Active" value="active"> "Active""
+  <input type="radio" name="Inactive" value="Inactive"> "Inactive"
+  <input type="radio" name="sedentary" value=""sedentary""> "Sedentary"
+  <input type="radio" name="Extraactive" value=""extraactive""> "Extra Active"
+  
+</form>
+
 	<input type="submit">
 	</form:form>
 

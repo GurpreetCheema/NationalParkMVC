@@ -14,11 +14,17 @@ import org.springframework.stereotype.Component;
 		public JdbcSurveyDao(DataSource dataSource) {
 			this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
+//		@Override
+//		public void save(Survey survey) {
+//			// here we will save the result of survey into Database
+//			//insert into result ( emailAddress, state, parkcode, activityLevel) VALUES (?,?,?,?)";
+//		}
+//		
 		@Override
 		public void save(Survey survey) {
-			// here we will save the result of survey into Database
-			//insert into result ( emailAddress, state, parkcode, activityLevel) VALUES (?,?,?,?)";
+			// TODO Auto-generated method stub
 			
 		}
-		}
+		
+}
 
