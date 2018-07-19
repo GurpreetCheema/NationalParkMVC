@@ -35,8 +35,13 @@ private JdbcTemplate jdbcTemplate;
 
 	@Override
 	public Park getParkByParkCode(String parkCode) {
-		// TODO Auto-generated method stub
-		return null;
+		String statement = "SELECT * FROM park WHERE parkcode = ?";
+		SqlRowSet result = jdbcTemplate.queryForRowSet(statement, parkCode);
+		Park currentPark = null;
+		if(result.next()) {
+			currentPark = mapRowToPark(result);
+		}
+		return currentPark;
 	}
 
 	@Override
@@ -69,7 +74,7 @@ private JdbcTemplate jdbcTemplate;
 		    park.setparkDescription(results.getString("parkDescription"));
 		    park.setEntryFee(results.getInt("entryFee"));
 		    park.setNumberOfAnimalSpecies(results.getInt("numberOfAnimalSpecies"));
-		    //park.setImageName(results.getString("imageName"));
+
 		    
 		    return park;
 		}

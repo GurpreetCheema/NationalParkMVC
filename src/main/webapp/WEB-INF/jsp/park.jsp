@@ -6,15 +6,16 @@
 
 <c:forEach var="parks" items="${parks}">
 
-<div class=â€œimageForParkâ€>
-<c:url var="parksImgUrl" value="/img/parks/${parks.parkCodeLower}.jpg" />
-<img src="${parksImgUrl}"/>
-<br/>
-<strong>${parks.parkName}</strong>
-<p>${parks.parkDescription}</p>
-
- </div>
-
+	<div class=imageForPark€>
+		<c:url var="parksImgUrl" value="/img/parks/${parks.parkCodeLower}.jpg" />
+		<c:url var="parkDetailPageUrl" value="/parkDetail/${parks.parkCode}"/>
+			<img src="${parksImgUrl}"/>
+			<br/>
+			<h4>${parks.parkName}</h4>
+			<p>${parks.parkDescription}</p>
+			<a href="${parkDetailPageUrl}"><div class="btn btn-success">Park Details</div></a>
+			<br/><hr/>
+	 </div>
 </c:forEach>
 
 

@@ -7,6 +7,7 @@ public class Weather {
 		private int low;
 		private int high;
 		private String forecast;
+		private String setParkCode;
 		
 		
 		public int getfiveDayForecast() {
@@ -32,6 +33,18 @@ public class Weather {
 		}
 		public void setForecast(String forecast) {
 			this.forecast = forecast;
+		}
+		public Integer getFiveDayForecastValue() {
+			return fiveDayForecastValue;
+		}
+		public void setFiveDayForecastValue(int fiveDayForecastValue) {
+			this.fiveDayForecastValue = fiveDayForecastValue;
+		}
+		public String getParkCode() {
+			return getParkCode();
+		}
+		public void setParkCode(String parkCode) {
+			this.setParkCode = parkCode;		
 		}
 
 	}
