@@ -14,17 +14,16 @@ import org.springframework.stereotype.Component;
 		public JdbcSurveyDao(DataSource dataSource) {
 			this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
-//		@Override
-//		public void save(Survey survey) {
-//			// here we will save the result of survey into Database
-//			//insert into result ( emailAddress, state, parkcode, activityLevel) VALUES (?,?,?,?)";
-//		}
-//		
+		
 		@Override
 		public void save(Survey survey) {
-			// TODO Auto-generated method stub
+			String sqlInsertSurvey = "INSERT INTO survey_result (parkcode, emailaddress, state, activitylevel) VALUES (?, ?, ?, ?) RETURNING surveyid";
+			int surveyId = jdbcTemplate.queryForObject(sqlInsertSurvey, int.class, survey.getParkCode(), survey.getEmailAddress(), survey.getState(), survey.getActivityLevel());
 			
+			survey.setSurveyId(surveyId);
 		}
+		
+
 		
 }
 

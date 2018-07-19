@@ -2,11 +2,12 @@
 <%@include file="common/header.jspf" %>
 
 
-<c:url var="submitSurvey" value="/survey"/>
-
-	<form action="${ submitSurvey}" modelAttribute="survey" method="POST" >
+<c:url var="submitSurvey" value="/Survey"/>
+<h1>Daily Survey</h1>
+<br/>
+	<form action="${submitSurvey}" method="POST" >
 		<label for="favoritePark">Favorite National Park</label>
-			<select name="parkCode">
+			<select name="parkname">
 				<option value="GNP">Glacier National Park</option>
 				<option value="GCNP">Grand Canyon National Park</option>
 				<option value="GTNP">Grand Teton National Park</option>
@@ -19,10 +20,13 @@
 				<option value="RMNP">Rocky Mountain National Park</option>
 			
           </select>
-			
+			<div class="formGroup">
+		<label for="email"> Enter your E-mail address:</label> <input type="text"
+			name="email" id="email" />
+	</div>
 
 <p> <label for="state">State: </label> 	
-<select>
+<select name="state" id="state">
 	<option value="AL">Alabama</option>
 	<option value="AK">Alaska</option>
 	<option value="AZ">Arizona</option>
@@ -77,18 +81,17 @@
 </select>				
 				
 </p>	
-<form action="">
-<label for="activityLevel">Activity Level</label>
-  <input type="radio" name="Active" value="active"> "Active""
-  <input type="radio" name="Inactive" value="Inactive"> "Inactive"
-  <input type="radio" name="sedentary" value=""sedentary""> "Sedentary"
-  <input type="radio" name="Extraactive" value=""extraactive""> "Extra Active"
-  
+
+<label for="activitylevel">Activity Level</label><br/>
+  <input type="radio" name="activitylevel" value="Active"> Active
+  <input type="radio" name="activitylevel" value="Inactive"> Inactive
+  <input type="radio" name="activitylevel" value="Sedentary"> Sedentary
+  <input type="radio" name="activitylevel" value="Extraactive"> Extra Active
+
+
+	<input class="formSubmitButton" type="submit" value="Submit" />
+
 </form>
-
-	<input type="submit">
-	</form:form>
-
 
 
 

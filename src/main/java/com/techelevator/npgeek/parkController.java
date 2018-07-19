@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.view.RedirectView;
 
 import com.techelevator.model.ParkDao;
 import com.techelevator.model.Survey;
@@ -47,49 +48,23 @@ public class parkController {
 
 	@RequestMapping(path="/Survey",method=RequestMethod.GET)
 	public String showSurveyPage() {
-//		if ( modelHolder.containsAttribute("survey")) {
-//			modelHolder.put("survey",new Survey());
 	return "survey";
 	}
-//	
-//@RequestMapping(path="/survey", method=RequestMethod.POST)
-//public String processSurvey(@ModelAttribute Survey newSurvey, BindingResult result, RedirectAttributes flash) {
-//flash.addFlashAttribute("survey", newSurvey);
-//if (result.hasErrors()) {
-//
-//flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "survey", result);
-//
-//return "redirect:/survey";
-//
-//}
-//surveyDao.savesurveyResult(newSurvey);
-//return "redirect:/confirmation";
-//
-//}
-
-//@RequestMapping(value = "/test", method = RequestMethod.GET)
-//public String test(@ModelAttribute("exampleForm") final ExampleForm exampleForm, final Model model)
-//{
-//    return "test";
-//}
-
-
-//@RequestMapping(value = "/user/create", method = RequestMethod.POST)
-//public String doCreate(@ModelAttribute("user") @Valid User user, BindingResult result, RedirectAttributes rA){
-//
-//  if(result.hasErrors()){
-//      rA.addFlashAttribute("result", result);
-//      rA.addFlashAttribute("user", user);
-//
-//      return "redirect:/user";
-//  }
-//
-//  return "redirect:/user/success";
-//}
-
-
-
-
+	
+	@RequestMapping(path="/Survey", method=RequestMethod.POST)
+	public String saveSurvey(@RequestParam String parkname, @RequestParam String email, @RequestParam String state, @RequestParam String activitylevel) {
+		
+		Survey survey = new Survey();
+		survey.setParkName(parkname);
+		survey.setEmailAddress(email);
+		survey.setState(state);
+		survey.setActivityLevel(activitylevel);
+		
+		surveyDao.save(survey);
+		
+		return"redirect:/";
+	
+	}
 
 
 
