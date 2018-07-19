@@ -62,6 +62,7 @@
 </div>
 <br/>
 <h3>"<c:out value="${parks.inspirationalQuote}" />"</h3>
+<h3>--<c:out value="${parks.inspirationalQuoteSource}" /></h3>
 <br/>
 
 
@@ -81,9 +82,13 @@
 
 	</c:otherwise>
 </c:choose>
-<%-- <c:choose>
+<c:choose>
 	<c:when test="${weather.forecast == 'snow'}">
 		<c:set var="weatherMessage" value="Be sure to pack snow shoes!" />
+			<div class="alert">
+			<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+	  		<strong>Snow Warning!</strong> Be sure to pack snow shoes!.
+			</div>
 	</c:when>
 	<c:when test="${weather.forecast == 'rain'}">
 		<c:set var="weatherMessage" value="Be sure to pack rain gear and wear waterproof shoes!" />
@@ -120,37 +125,126 @@
 	<c:otherwise>
 		<c:set var="tempMessage" value="" />
 	</c:otherwise>
-</c:choose> --%>
-<%-- <form method="POST" action="${actionUrl}">
+</c:choose> 
+<form method="POST" action="${actionUrl}">
 	<select name="isCelsius">
 		<option value="false" ${isCelsius ? '' : 'selected'}>Fahrenheit</option>
 		<option value="true" ${isCelsius ? 'selected' : ''}>Celsius</option>
 	</select>
 	<input type="submit" name="submit" class="btn btn-success" value="Go"/>
-</form> --%>
+</form>
 </div>
 <div class="today">
 	<h3>Today</h3>
-	<img src="${weatherImg}" />
-	<h6>High: <fmt:formatNumber maxFractionDigits="0" value="${highTemp}" /><c:out value="${tempScale}" /></h6> | <h6>Low: <fmt:formatNumber maxFractionDigits="0" value="${lowTemp}" /><c:out value="${tempScale}" /></h6>
-	<p><c:out value="${weatherMessage}" /> <c:out value="${tempMessage}" /></p>
+	<c:choose>
+	<c:when test="${weather.forecast == 'partly cloudy'}">
+		<c:url var="weatherImg" value="/img/weather/partlyCloudy.png"/>
+		<div class = "forcast">
+			<img src="${weatherImg}" />
+			<h5>High: <fmt:formatNumber maxFractionDigits="0" value="${highTemp}" /><c:out value="${tempScale}" /></h5><br>
+		<h5>Low: <fmt:formatNumber maxFractionDigits="0" value="${lowTemp}" /><c:out value="${tempScale}" /></h5>
+		</div>
+	</c:when>
+	<c:when test="${weather.forecast == 'cloudy'}">
+		<c:url var="weatherImg" value="/img/weather/cloudy.png"/>
+		<div class = "forcast">
+			<img src="${weatherImg}" />
+			<h5>High: <fmt:formatNumber maxFractionDigits="0" value="${highTemp}" /><c:out value="${tempScale}" /></h5><br>
+		<h5>Low: <fmt:formatNumber maxFractionDigits="0" value="${lowTemp}" /><c:out value="${tempScale}" /></h5>
+		</div>
+	</c:when>
+	<c:when test="${weather.forecast == 'rain'}">
+		<div class="alert warning">
+  			<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+  			<strong>Warning!</strong> Pack a raincoat and waterproof shoes today!
+		</div>
+		<c:url var="weatherImg" value="/img/weather/rain.png"/>
+		<div class = "forcast">
+			<img src="${weatherImg}" />
+			<h5>High: <fmt:formatNumber maxFractionDigits="0" value="${highTemp}" /><c:out value="${tempScale}" /></h5><br>
+		<h5>Low: <fmt:formatNumber maxFractionDigits="0" value="${lowTemp}" /><c:out value="${tempScale}" /></h5>
+		</div>
+	</c:when>
+	<c:when test="${weather.forecast == 'snow'}">
+		<div class="alert warning">
+  			<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+  			<strong>Warning!</strong> Make sure you pack warm slip resistant snow shoes!
+		</div>
+		<c:url var="weatherImg" value="/img/weather/snow.png"/>
+		<div class = "forcast">
+			<img src="${weatherImg}" />
+			<h5>High: <fmt:formatNumber maxFractionDigits="0" value="${highTemp}" /><c:out value="${tempScale}" /></h5><br>
+		<h5>Low: <fmt:formatNumber maxFractionDigits="0" value="${lowTemp}" /><c:out value="${tempScale}" /></h5>
+		</div>
+	</c:when>
+	<c:when test="${weather.forecast == 'sunny'}">
+		<div class="alert warning">
+  			<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+  			<strong>Warning!</strong> Don't forget your sunblock today!
+		</div>
+		<c:url var="weatherImg" value="/img/weather/sunny.png"/>
+		<div class = "forcast">
+			<img src="${weatherImg}" />
+			<h5>High: <fmt:formatNumber maxFractionDigits="0" value="${highTemp}" /><c:out value="${tempScale}" /></h5><br>
+		<h5>Low: <fmt:formatNumber maxFractionDigits="0" value="${lowTemp}" /><c:out value="${tempScale}" /></h5>
+		</div>
+	</c:when>
+	<c:when test="${weather.forecast == 'thunderstorms'}">
+		<div class="alert warning">
+  			<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+  			<strong>Warning!</strong> seek shelter and avoid hiking on exposed ridges!
+		</div>
+		<c:url var="weatherImg" value="/img/weather/thunderstorms.png"/>
+		<div class = "forcast">
+			<img src="${weatherImg}" />
+			
+			<h5>High: <fmt:formatNumber maxFractionDigits="0" value="${highTemp}" /><c:out value="${tempScale}" /></h5><br>
+		<h5>Low: <fmt:formatNumber maxFractionDigits="0" value="${lowTemp}" /><c:out value="${tempScale}" /></h5>
+		</div>
+	</c:when>
+		
+		
+		
+		
+		
+	<%-- <c:otherwise>
+	<c:url var="weatherImg" value="/img/weather/${weather.forecast}.png" />
+	<div class="forecast">	
+		<img src="${weatherImg}" />
+		<h5>High: <fmt:formatNumber maxFractionDigits="0" value="${highTemp}" /><c:out value="${tempScale}" /></h5><br>
+		<h5>Low: <fmt:formatNumber maxFractionDigits="0" value="${lowTemp}" /><c:out value="${tempScale}" /></h5>
+	</div>
+	</c:otherwise> --%>
+	</c:choose>
+
 </div>
 <br/>
 <hr/>
 <c:forEach varStatus="loop" var="weather" items="${weatherList}" begin="1">
 	<c:set var="weather" value="${weatherList[loop.index]}" />
-		
+
 			<c:set var="highTemp" value="${weather.high}" />
 			<c:set var="lowTemp" value="${weather.low}" />
 			<c:set var="tempScale" value="°F" />
-	
+
+<c:choose>
+	<c:when test="${weather.forecast == 'partly cloudy'}">
+		<c:url var="weatherImg" value="/img/weather/partlyCloudy.png"/>
+		<div class = "forcast">
+			<img src="${weatherImg}" />
+			<h5>High: <fmt:formatNumber maxFractionDigits="0" value="${highTemp}" /><c:out value="${tempScale}" /></h5><br>
+		<h5>Low: <fmt:formatNumber maxFractionDigits="0" value="${lowTemp}" /><c:out value="${tempScale}" /></h5>
+		</div>
+		</c:when>
+	<c:otherwise>
 	<c:url var="weatherImg" value="/img/weather/${weather.forecast}.png" />
-	<div class="forecast">
-	
+	<div class="forecast">	
 		<img src="${weatherImg}" />
 		<h5>High: <fmt:formatNumber maxFractionDigits="0" value="${highTemp}" /><c:out value="${tempScale}" /></h5><br>
 		<h5>Low: <fmt:formatNumber maxFractionDigits="0" value="${lowTemp}" /><c:out value="${tempScale}" /></h5>
 	</div>
+	</c:otherwise>
+	</c:choose>
 </c:forEach>
 
 
