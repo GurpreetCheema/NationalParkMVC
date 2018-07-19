@@ -11,4 +11,7 @@ img.logoImage {
  .topnav a:hover { background-color: #d48d4e; color: black; }
   .topnav a.active { background-color: #febc7b; color: white; }
 
-
+body{
+  background: radial-gradient(red, yellow, green);
+}
+}
