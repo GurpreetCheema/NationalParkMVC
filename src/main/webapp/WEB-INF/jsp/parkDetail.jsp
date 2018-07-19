@@ -228,6 +228,9 @@
 		<h5>Low: <fmt:formatNumber maxFractionDigits="0" value="${lowTemp}" /><c:out value="${tempScale}" /></h5>
 	</div>
 	</c:otherwise> --%>
+	
+	
+	
 	</c:choose>
 
 </div>
@@ -259,8 +262,6 @@
 	</c:otherwise>
 	</c:choose>
 </c:forEach>
-
-
 
 
 

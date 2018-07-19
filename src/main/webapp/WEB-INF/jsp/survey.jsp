@@ -4,7 +4,7 @@
 
 <c:url var="submitSurvey" value="/survey"/>
 
-	<form:form action="${ submitSurvey}" modelAttribute="survey" method="POST" >
+	<form action="${ submitSurvey}" modelAttribute="survey" method="POST" >
 		<label for="favoritePark">Favorite National Park</label>
 			<select name="parkCode">
 				<option value="GNP">Glacier National Park</option>
@@ -22,7 +22,6 @@
 			
 
 <p> <label for="state">State: </label> 	
-<select name="state">
 <select>
 	<option value="AL">Alabama</option>
 	<option value="AK">Alaska</option>
@@ -75,7 +74,8 @@
 	<option value="WV">West Virginia</option>
 	<option value="WI">Wisconsin</option>
 	<option value="WY">Wyoming</option>
-</select>
+</select>				
+				
 </p>	
 <form action="">
 <label for="activityLevel">Activity Level</label>
@@ -98,4 +98,4 @@
 
 
 
-<%@include file="common/header.jspf" %>
+<%@include file="common/footer.jspf" %>

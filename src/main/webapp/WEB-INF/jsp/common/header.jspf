@@ -26,10 +26,10 @@
          
 <div class="topnav">
   <a class="active" href="/m3-java-capstone/">Home</a>
-  <a href="#Survey">Survey</a>
+  <a href="/m3-java-capstone/Survey">Survey</a>
 </div>
          
-         
+         <br>
  </header>
  <body>
  
