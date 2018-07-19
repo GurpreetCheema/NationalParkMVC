@@ -52,10 +52,10 @@ public class parkController {
 	}
 	
 	@RequestMapping(path="/Survey", method=RequestMethod.POST)
-	public String saveSurvey(@RequestParam String parkname, @RequestParam String email, @RequestParam String state, @RequestParam String activitylevel) {
+	public String saveSurvey(@RequestParam String parkCode, @RequestParam String email, @RequestParam String state, @RequestParam String activitylevel) {
 		
 		Survey survey = new Survey();
-		survey.setParkName(parkname);
+		survey.setParkCode(parkCode);
 		survey.setEmailAddress(email);
 		survey.setState(state);
 		survey.setActivityLevel(activitylevel);

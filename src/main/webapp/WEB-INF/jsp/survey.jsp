@@ -7,7 +7,7 @@
 <br/>
 	<form action="${submitSurvey}" method="POST" >
 		<label for="favoritePark">Favorite National Park</label>
-			<select name="parkname">
+			<select name="parkCode">
 				<option value="GNP">Glacier National Park</option>
 				<option value="GCNP">Grand Canyon National Park</option>
 				<option value="GTNP">Grand Teton National Park</option>
