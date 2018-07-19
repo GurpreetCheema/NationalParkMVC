@@ -15,12 +15,15 @@ import com.techelevator.model.WeatherDao;
 
 @Controller
 public class parkController {
+	
 	@Autowired
 	private ParkDao parkDao;
+	
 	@Autowired
 	private WeatherDao weatherDao;
-//	@Autowired
-//	private SurveyDao surveyDao;
+	
+	@Autowired
+	private SurveyDao surveyDao;
 	
 	
 	@RequestMapping(path="/",method=RequestMethod.GET)
@@ -32,7 +35,7 @@ public class parkController {
 	@RequestMapping(path="/parkDetail/{parkCode}", method=RequestMethod.GET)
 	public String showParkDetail(ModelMap modelHolder, @PathVariable String parkCode) {
 		modelHolder.put("parks", parkDao.getParkByParkCode(parkCode));
-		//modelHolder.put("weather", weatherDao.getWeatherByParkCode(parkCode));
+		modelHolder.put("weatherList", weatherDao.getWeatherByParkCode(parkCode));
 		return "parkDetail";
 	}
 	

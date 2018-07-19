@@ -81,7 +81,7 @@
 
 	</c:otherwise>
 </c:choose>
-<c:choose>
+<%-- <c:choose>
 	<c:when test="${weather.forecast == 'snow'}">
 		<c:set var="weatherMessage" value="Be sure to pack snow shoes!" />
 	</c:when>
@@ -120,7 +120,7 @@
 	<c:otherwise>
 		<c:set var="tempMessage" value="" />
 	</c:otherwise>
-</c:choose>
+</c:choose> --%>
 <%-- <form method="POST" action="${actionUrl}">
 	<select name="isCelsius">
 		<option value="false" ${isCelsius ? '' : 'selected'}>Fahrenheit</option>
@@ -135,22 +135,18 @@
 	<h6>High: <fmt:formatNumber maxFractionDigits="0" value="${highTemp}" /><c:out value="${tempScale}" /></h6> | <h6>Low: <fmt:formatNumber maxFractionDigits="0" value="${lowTemp}" /><c:out value="${tempScale}" /></h6>
 	<p><c:out value="${weatherMessage}" /> <c:out value="${tempMessage}" /></p>
 </div>
+<br/>
+<hr/>
 <c:forEach varStatus="loop" var="weather" items="${weatherList}" begin="1">
 	<c:set var="weather" value="${weatherList[loop.index]}" />
-		<c:choose>
-		<c:when test="${isCelsius}">
-			<c:set var="highTemp" value="${(weather.high - 32) / 1.8}" />
-			<c:set var="lowTemp" value="${(weather.low - 32) / 1.8}" />
-			<c:set var="tempScale" value="°C" />
-		</c:when>
-		<c:otherwise>
+		
 			<c:set var="highTemp" value="${weather.high}" />
 			<c:set var="lowTemp" value="${weather.low}" />
 			<c:set var="tempScale" value="°F" />
-		</c:otherwise>
-	</c:choose>
+	
 	<c:url var="weatherImg" value="/img/weather/${weather.forecast}.png" />
 	<div class="forecast">
+	
 		<img src="${weatherImg}" />
 		<h5>High: <fmt:formatNumber maxFractionDigits="0" value="${highTemp}" /><c:out value="${tempScale}" /></h5><br>
 		<h5>Low: <fmt:formatNumber maxFractionDigits="0" value="${lowTemp}" /><c:out value="${tempScale}" /></h5>

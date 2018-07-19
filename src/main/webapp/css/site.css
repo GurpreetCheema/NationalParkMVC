@@ -12,6 +12,6 @@ img.logoImage {
   .topnav a.active { background-color: #febc7b; color: white; }
 
 body{
-  background: radial-gradient(red, yellow, green);
+  background: radial-gradient(Orange, red, dodgerblue);
 }
 }
