@@ -84,43 +84,73 @@
 </c:choose>
 <c:choose>
 	<c:when test="${weather.forecast == 'snow'}">
-		<c:set var="weatherMessage" value="Be sure to pack snow shoes!" />
 			<div class="alert">
 			<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
 	  		<strong>Snow Warning!</strong> Be sure to pack snow shoes!.
 			</div>
 	</c:when>
 	<c:when test="${weather.forecast == 'rain'}">
-		<c:set var="weatherMessage" value="Be sure to pack rain gear and wear waterproof shoes!" />
+			<div class="alert warning">
+  			<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+  			<strong>Warning!</strong> Pack a raincoat and waterproof shoes today!
+		</div>
 	</c:when>
 	<c:when test="${weather.forecast == 'thunderstorms'}">
-		<c:set var="weatherMessage" value="Be sure to seek shelter and avoid hiking on exposed ridges!" />
+		<<div class="alert warning">
+  			<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+  			<strong>Warning!</strong> seek shelter and avoid hiking on exposed ridges!
+		</div>
 	</c:when>
 	<c:when test="${weather.forecast == 'sunny'}">
-		<c:set var="weatherMessage" value="Be sure to bring sunblock!" />
+				<div class="alert warning">
+  			<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+  			<strong>Warning!</strong> Don't forget your sunblock today!
+		</div>
 	</c:when>
 	<c:otherwise>
-		<c:set var="weatherMessage" value="" />
 	</c:otherwise>
 </c:choose>
 <c:choose>
 	<c:when test="${weather.high > 75}">
 		<c:set var="tempMessage" value="Bring an extra gallon of water." />
+		<div class="alert danger">
+  			<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+  			<strong>Warning!</strong>Temperature will increase today bring an extra galon of water!
+		</div>
 	</c:when>
 	<c:when test="${weather.low < 20}">
 		<c:set var="tempMessage" value="Be aware of dangerous, frigid temperatures." />
+		<div class="alert danger">
+  			<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+  			<strong>Warning!</strong>Temperature will be dangerously low dress warm!
+		</div>
+		
 	</c:when>
 	<c:when test="${(weather.high - weather.low) > 20}">
 		<c:set var="tempMessage" value="Wear breathable layers." />
+		<div class="alert warning">
+  			<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+  			<strong>Warning!</strong>Temperature will vary today wear breathable layers!
+		</div>
 	</c:when>
 	<c:when test="${weather.high > 75 && (weather.high - weather.low) > 20}">
-		<c:set var="tempMessage" value="Bring an extra gallon of water and wear breathable layers." />
+		<div class="alert warning">
+  			<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+  			<strong>Warning!</strong>Temperature will vary today bring and extra gallon of water and wear breathable layers!
+		</div>
 	</c:when>
 	<c:when test="${weather.low < 20 && (weather.high - weather.low) > 20}">
-		<c:set var="tempMessage" value="Be aware of dangerous, frigid temperatures and wear breathable layers." />
+		<div class="alert danger">
+  			<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+  			<strong>Warning!</strong>Be aware of dangerous, frigid temperatures and wear breathable layers.
+		</div>
 	</c:when>
 	<c:when test="${weather.low < 20 && weather.high > 75}">
 		<c:set var="tempMessage" value="The weather sucks, prepare for anything." />
+		<div class="alert danger">
+  			<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+  			<strong>Warning!</strong> The temperature will drastically change throughout the day prepare for anything!
+		</div>
 	</c:when>
 	<c:otherwise>
 		<c:set var="tempMessage" value="" />
@@ -154,10 +184,6 @@
 		</div>
 	</c:when>
 	<c:when test="${weather.forecast == 'rain'}">
-		<div class="alert warning">
-  			<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-  			<strong>Warning!</strong> Pack a raincoat and waterproof shoes today!
-		</div>
 		<c:url var="weatherImg" value="/img/weather/rain.png"/>
 		<div class = "forcast">
 			<img src="${weatherImg}" />
@@ -166,10 +192,6 @@
 		</div>
 	</c:when>
 	<c:when test="${weather.forecast == 'snow'}">
-		<div class="alert warning">
-  			<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-  			<strong>Warning!</strong> Make sure you pack warm slip resistant snow shoes!
-		</div>
 		<c:url var="weatherImg" value="/img/weather/snow.png"/>
 		<div class = "forcast">
 			<img src="${weatherImg}" />
@@ -178,10 +200,6 @@
 		</div>
 	</c:when>
 	<c:when test="${weather.forecast == 'sunny'}">
-		<div class="alert warning">
-  			<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-  			<strong>Warning!</strong> Don't forget your sunblock today!
-		</div>
 		<c:url var="weatherImg" value="/img/weather/sunny.png"/>
 		<div class = "forcast">
 			<img src="${weatherImg}" />
@@ -190,14 +208,9 @@
 		</div>
 	</c:when>
 	<c:when test="${weather.forecast == 'thunderstorms'}">
-		<div class="alert warning">
-  			<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-  			<strong>Warning!</strong> seek shelter and avoid hiking on exposed ridges!
-		</div>
 		<c:url var="weatherImg" value="/img/weather/thunderstorms.png"/>
 		<div class = "forcast">
 			<img src="${weatherImg}" />
-			
 			<h5>High: <fmt:formatNumber maxFractionDigits="0" value="${highTemp}" /><c:out value="${tempScale}" /></h5><br>
 		<h5>Low: <fmt:formatNumber maxFractionDigits="0" value="${lowTemp}" /><c:out value="${tempScale}" /></h5>
 		</div>
