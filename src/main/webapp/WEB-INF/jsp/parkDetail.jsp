@@ -65,8 +65,8 @@
 <h3>--<c:out value="${parks.inspirationalQuoteSource}" /></h3>
 <br/>
 
-
-<div class="weather">
+<!-- ----------------- Block for weather -------------->
+<div class="weatherForAll">
 <c:set var="weather" value="${weatherList[0]}" />
 <c:url var="weatherImg" value="/img/weather/${weather.forecast}.png" />
 <c:choose>
@@ -82,6 +82,7 @@
 
 	</c:otherwise>
 </c:choose>
+</div>
 <c:choose>
 	<c:when test="${weather.forecast == 'snow'}">
 			<div class="alert">
@@ -124,7 +125,7 @@
   			<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
   			<strong>Warning!</strong>Temperature will be dangerously low dress warm!
 		</div>
-		
+	</div>	
 	</c:when>
 	<c:when test="${(weather.high - weather.low) > 20}">
 		<c:set var="tempMessage" value="Wear breathable layers." />
@@ -168,18 +169,21 @@
 
 
 </div>
+
+<!--------------------- This one is for today------------>
 <div class="today">
 	<h3>Today</h3>
 	<c:choose>
 	<c:when test="${weather.forecast == 'partly cloudy'}">
 		<c:url var="weatherImg" value="/img/weather/partlyCloudy.png"/>
 		<div class = "forcast">
-			<img src="${weatherImg}" />
+		<img src="${weatherImg}" />
 		
-					<h5>High: <fmt:formatNumber maxFractionDigits="0" value="${highTemp}" /><c:out value="${tempScale}" /></h5><br>
-					<h5>Low: <fmt:formatNumber maxFractionDigits="0" value="${lowTemp}" /><c:out value="${tempScale}" /></h5>
+	<h5>High: <fmt:formatNumber maxFractionDigits="0" value="${highTemp}" /><c:out value="${tempScale}" /></h5><br>	<h5>Low: <fmt:formatNumber maxFractionDigits="0" value="${lowTemp}" /><c:out value="${tempScale}" /></h5>
+</div>
 		
-		</div>
+<!-- all weather report start here	 -->	
+<div class ="allWeather"	>
 	</c:when>
 	<c:when test="${weather.forecast == 'cloudy'}">
 		<c:url var="weatherImg" value="/img/weather/cloudy.png"/>
@@ -228,8 +232,7 @@
 <hr/>
 <c:forEach varStatus="loop" var="weather" items="${weatherList}" begin="1">
 	<c:set var="weather" value="${weatherList[loop.index]}" />
-
-		<c:choose>
+	<c:choose>
 			<c:when test="${isCelsius}">
 				<c:set var="highTemp" value="${(weather.high - 32) / (5/9)}" />
 				<c:set var="lowTemp" value="${(weather.low - 32) / (5/9)}" />
@@ -261,6 +264,7 @@
 	</c:otherwise>
 	</c:choose>
 </c:forEach>
+		
 
 
 
