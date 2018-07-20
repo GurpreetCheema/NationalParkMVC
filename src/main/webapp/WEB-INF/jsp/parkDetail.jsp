@@ -156,6 +156,8 @@
 		<c:set var="tempMessage" value="" />
 	</c:otherwise>
 </c:choose> 
+
+
 <form method="POST" action="${actionUrl}">
 	<select name="isCelsius">
 		<option value="false" ${isCelsius ? '' : 'selected'}>Fahrenheit</option>
@@ -163,6 +165,8 @@
 	</select>
 	<input type="submit" name="submit" class="btn btn-success" value="Go"/>
 </form>
+
+
 </div>
 <div class="today">
 	<h3>Today</h3>
@@ -171,8 +175,10 @@
 		<c:url var="weatherImg" value="/img/weather/partlyCloudy.png"/>
 		<div class = "forcast">
 			<img src="${weatherImg}" />
-			<h5>High: <fmt:formatNumber maxFractionDigits="0" value="${highTemp}" /><c:out value="${tempScale}" /></h5><br>
-		<h5>Low: <fmt:formatNumber maxFractionDigits="0" value="${lowTemp}" /><c:out value="${tempScale}" /></h5>
+		
+					<h5>High: <fmt:formatNumber maxFractionDigits="0" value="${highTemp}" /><c:out value="${tempScale}" /></h5><br>
+					<h5>Low: <fmt:formatNumber maxFractionDigits="0" value="${lowTemp}" /><c:out value="${tempScale}" /></h5>
+		
 		</div>
 	</c:when>
 	<c:when test="${weather.forecast == 'cloudy'}">
@@ -215,22 +221,6 @@
 		<h5>Low: <fmt:formatNumber maxFractionDigits="0" value="${lowTemp}" /><c:out value="${tempScale}" /></h5>
 		</div>
 	</c:when>
-		
-		
-		
-		
-		
-	<%-- <c:otherwise>
-	<c:url var="weatherImg" value="/img/weather/${weather.forecast}.png" />
-	<div class="forecast">	
-		<img src="${weatherImg}" />
-		<h5>High: <fmt:formatNumber maxFractionDigits="0" value="${highTemp}" /><c:out value="${tempScale}" /></h5><br>
-		<h5>Low: <fmt:formatNumber maxFractionDigits="0" value="${lowTemp}" /><c:out value="${tempScale}" /></h5>
-	</div>
-	</c:otherwise> --%>
-	
-	
-	
 	</c:choose>
 
 </div>
@@ -239,9 +229,18 @@
 <c:forEach varStatus="loop" var="weather" items="${weatherList}" begin="1">
 	<c:set var="weather" value="${weatherList[loop.index]}" />
 
-			<c:set var="highTemp" value="${weather.high}" />
-			<c:set var="lowTemp" value="${weather.low}" />
-			<c:set var="tempScale" value="°F" />
+		<c:choose>
+			<c:when test="${isCelsius}">
+				<c:set var="highTemp" value="${(weather.high - 32) / (5/9)}" />
+				<c:set var="lowTemp" value="${(weather.low - 32) / (5/9)}" />
+				<c:set var="tempScale" value="°C" />
+			</c:when>
+			<c:otherwise>
+				<c:set var="highTemp" value="${weather.high}" />
+				<c:set var="lowTemp" value="${weather.low}" />
+				<c:set var="tempScale" value="°F" />
+			</c:otherwise>
+		</c:choose>
 
 <c:choose>
 	<c:when test="${weather.forecast == 'partly cloudy'}">

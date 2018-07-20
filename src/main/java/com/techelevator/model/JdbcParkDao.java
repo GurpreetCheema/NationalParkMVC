@@ -52,8 +52,22 @@ private JdbcTemplate jdbcTemplate;
 
 	@Override
 	public List<Park> getTopParks() {
-		// TODO Auto-generated method stub
-		return null;
+List<Park> topParks = new ArrayList<Park>();
+		
+		String sqlGetTopSurveys =  "SELECT survey_result.parkcode, park.*, COUNT(survey_result.parkcode) as count FROM survey_result " +
+								   "JOIN park ON park.parkCode = survey_result.parkcode " +
+								   "GROUP BY survey_result.parkcode, park.parkCode " +
+								   "ORDER BY count desc, survey_result.parkcode "+
+								   "LIMIT 5";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetTopSurveys);
+		while(results.next()){
+			Park park = mapRowToPark(results);
+			park.setCount(results.getInt("count"));
+			topParks.add(park);
+		}
+		
+		return topParks;
+	
 	}
 	
 	private Park mapRowToPark(SqlRowSet results) {
@@ -63,8 +77,6 @@ private JdbcTemplate jdbcTemplate;
 		    park.setParkName(results.getString("parkname"));
 		    park.setState(results.getString("state"));
 		    park.setAcreage(results.getInt("acreage"));
-		   // park.setElevationInFeet(results.getInt("elevationInFeet"));
-		    //park.setMilesOfTrail(results.getInt("milesOfTrail"));
 		    park.setNumberOfCampsites(results.getInt("numberofCampsites"));
 		    park.setClimate(results.getString("climate"));
 		    park.setYearFounded(results.getInt("yearFounded"));

@@ -79,7 +79,6 @@
 	<option value="WI">Wisconsin</option>
 	<option value="WY">Wyoming</option>
 </select>				
-				
 </p>	
 
 <label for="activitylevel">Activity Level</label><br/>
@@ -87,18 +86,9 @@
   <input type="radio" name="activitylevel" value="Inactive"> Inactive
   <input type="radio" name="activitylevel" value="Sedentary"> Sedentary
   <input type="radio" name="activitylevel" value="Extraactive"> Extra Active
-
-
+  
 	<input class="formSubmitButton" type="submit" value="Submit" />
 
 </form>
-
-
-
-
-
-
-
-
 
 <%@include file="common/footer.jspf" %>
