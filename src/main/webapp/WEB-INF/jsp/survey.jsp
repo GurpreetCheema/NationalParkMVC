@@ -7,7 +7,7 @@
 <br/>
 	<form action="${submitSurvey}" method="POST" >
 		<label for="favoritePark">Favorite National Park</label>
-			<select name="parkCode">
+			<select name="parkCode" required>
 				<option value="GNP">Glacier National Park</option>
 				<option value="GCNP">Grand Canyon National Park</option>
 				<option value="GTNP">Grand Teton National Park</option>
@@ -22,7 +22,7 @@
           </select>
 			<div class="formGroup">
 		<label for="email"> Enter your E-mail address:</label> <input type="text"
-			name="email" id="email" />
+			name="email" id="email" required/>
 	</div>
 
 <p> <label for="state">State: </label> 	
@@ -82,12 +82,12 @@
 </p>	
 
 <label for="activitylevel">Activity Level</label><br/>
-  <input type="radio" name="activitylevel" value="Active"> Active
+  <input type="radio" name="activitylevel" value="Active" required> Active
   <input type="radio" name="activitylevel" value="Inactive"> Inactive
   <input type="radio" name="activitylevel" value="Sedentary"> Sedentary
   <input type="radio" name="activitylevel" value="Extraactive"> Extra Active
   
-	<input class="formSubmitButton" type="submit" value="Submit" />
+	<input class="formSubmitButton" type="submit" value="Submit"/>
 
 </form>
 

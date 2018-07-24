@@ -173,17 +173,15 @@
 	<c:choose>
 	<c:when test="${weather.forecast == 'partly cloudy'}">
 		<c:url var="weatherImg" value="/img/weather/partlyCloudy.png"/>
-		<div class = "forcast">
+		<div class = "forecast">
 			<img src="${weatherImg}" />
-		
-					<h5>High: <fmt:formatNumber maxFractionDigits="0" value="${highTemp}" /><c:out value="${tempScale}" /></h5><br>
-					<h5>Low: <fmt:formatNumber maxFractionDigits="0" value="${lowTemp}" /><c:out value="${tempScale}" /></h5>
-		
+				<h5>High: <fmt:formatNumber maxFractionDigits="0" value="${highTemp}" /><c:out value="${tempScale}" /></h5><br>
+				<h5>Low: <fmt:formatNumber maxFractionDigits="0" value="${lowTemp}" /><c:out value="${tempScale}" /></h5>
 		</div>
 	</c:when>
 	<c:when test="${weather.forecast == 'cloudy'}">
 		<c:url var="weatherImg" value="/img/weather/cloudy.png"/>
-		<div class = "forcast">
+		<div class = "forecast">
 			<img src="${weatherImg}" />
 			<h5>High: <fmt:formatNumber maxFractionDigits="0" value="${highTemp}" /><c:out value="${tempScale}" /></h5><br>
 		<h5>Low: <fmt:formatNumber maxFractionDigits="0" value="${lowTemp}" /><c:out value="${tempScale}" /></h5>
@@ -191,7 +189,7 @@
 	</c:when>
 	<c:when test="${weather.forecast == 'rain'}">
 		<c:url var="weatherImg" value="/img/weather/rain.png"/>
-		<div class = "forcast">
+		<div class = "forecast">
 			<img src="${weatherImg}" />
 			<h5>High: <fmt:formatNumber maxFractionDigits="0" value="${highTemp}" /><c:out value="${tempScale}" /></h5><br>
 		<h5>Low: <fmt:formatNumber maxFractionDigits="0" value="${lowTemp}" /><c:out value="${tempScale}" /></h5>
@@ -199,7 +197,7 @@
 	</c:when>
 	<c:when test="${weather.forecast == 'snow'}">
 		<c:url var="weatherImg" value="/img/weather/snow.png"/>
-		<div class = "forcast">
+		<div class = "forecast">
 			<img src="${weatherImg}" />
 			<h5>High: <fmt:formatNumber maxFractionDigits="0" value="${highTemp}" /><c:out value="${tempScale}" /></h5><br>
 		<h5>Low: <fmt:formatNumber maxFractionDigits="0" value="${lowTemp}" /><c:out value="${tempScale}" /></h5>
@@ -207,7 +205,7 @@
 	</c:when>
 	<c:when test="${weather.forecast == 'sunny'}">
 		<c:url var="weatherImg" value="/img/weather/sunny.png"/>
-		<div class = "forcast">
+		<div class = "forecast">
 			<img src="${weatherImg}" />
 			<h5>High: <fmt:formatNumber maxFractionDigits="0" value="${highTemp}" /><c:out value="${tempScale}" /></h5><br>
 		<h5>Low: <fmt:formatNumber maxFractionDigits="0" value="${lowTemp}" /><c:out value="${tempScale}" /></h5>
@@ -215,7 +213,7 @@
 	</c:when>
 	<c:when test="${weather.forecast == 'thunderstorms'}">
 		<c:url var="weatherImg" value="/img/weather/thunderstorms.png"/>
-		<div class = "forcast">
+		<div class = "forecast">
 			<img src="${weatherImg}" />
 			<h5>High: <fmt:formatNumber maxFractionDigits="0" value="${highTemp}" /><c:out value="${tempScale}" /></h5><br>
 		<h5>Low: <fmt:formatNumber maxFractionDigits="0" value="${lowTemp}" /><c:out value="${tempScale}" /></h5>
@@ -245,7 +243,7 @@
 <c:choose>
 	<c:when test="${weather.forecast == 'partly cloudy'}">
 		<c:url var="weatherImg" value="/img/weather/partlyCloudy.png"/>
-		<div class = "forcast">
+		<div class = "forecast">
 			<img src="${weatherImg}" />
 			<h5>High: <fmt:formatNumber maxFractionDigits="0" value="${highTemp}" /><c:out value="${tempScale}" /></h5><br>
 		<h5>Low: <fmt:formatNumber maxFractionDigits="0" value="${lowTemp}" /><c:out value="${tempScale}" /></h5>

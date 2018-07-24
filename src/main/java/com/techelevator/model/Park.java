@@ -19,7 +19,7 @@ package com.techelevator.model;
 		private String parkDescription;
 		private int entryFee;
 		private int numberOfAnimalSpecies;
-		
+		private int count;
 		
 		
         public int getCount() {
@@ -30,7 +30,6 @@ package com.techelevator.model;
 			this.count = count;
 		}
 
-		private int count;
         
 		public String getParkCode() {
 			return parkCode;
