@@ -1,10 +1,16 @@
 img.logoImage {
 	width: 50%;
 	height: 50%;
+	
 }
 .topnav{
 	overflow: hidden;
 	background-color:#808080;
+}
+
+.imageForPark{
+border: 2px solid red;
+ border-radius: 50px 20px;
 }
 
 .topnav a { float: left; color: #ffcba7; text-align: center; padding: 14px 16px; text-decoration: none; font-size: 17px; }
@@ -12,7 +18,7 @@ img.logoImage {
   .topnav a.active { background-color: #febc7b; color: white; }
 
 body{
-  background: radial-gradient(Orange, red, dodgerblue);
+  background: radial-gradient(green, orange, dodgerblue);
 }
 .alert {
     padding: 20px;
@@ -33,4 +39,60 @@ body{
 
 .closebtn:hover {
     color: black;
+}
+.today{
+width:
+} 
+
+.today h3{
+text-align: center;
+background: radial-gradient(violet, orange, red);
+width:50%
+float:middle;
+height:30px;
+}
+
+.weatherForAll{
+width:50%;
+height:50%;
+padding:50px;
+margin:50px;
+}
+.topParks{
+	padding: 20px;
+	text-align: center;
+}
+.congratsImage {
+	width: 150px;
+	margin:20px;
+	padding:20px;
+    border: 2px solid red;
+    border-radius: 50px 20px;
+}
+
+ .parkName{
+	float:left;
+	margin:20px;
+	padding:20px;
+	
+}
+pre {
+   font-family: "courier new", courier, monospace;
+   font-size: 20px;
+   
+}
+.topImage{
+border: 5px solid black;
+    padding: 10px;
+    border-radius: 25px 25px;
+      border-radius: 25px;
+    padding: 20px; 
+    width: 200px;
+    height: 150px;    
+}
+    
+    
+    
+    
+}
 }

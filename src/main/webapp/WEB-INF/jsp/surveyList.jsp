@@ -8,20 +8,25 @@
 
 <hr>
 
-<h1> Top Parks </h1>
 
+-<h1> Top Parks </h1>
 
 <c:forEach var="parks" items="${topParks}">
+
+
 	<div id="park-info">
-		<c:url var="parksImgUrl" value="/img/parks/${parks.parkCodeLower}.jpg" />
+	<c:url var="parksImgUrl" value="/img/parks/${parks.parkCodeLower}.jpg" />
 		<c:url var="parkDetailPageUrl" value="/parkDetail/${parks.parkCode}"/>
 			<img src="${parksImgUrl}"/>
+			
+			
+			<td class ="parkName">
 		<h4><c:out value="${parks.parkName}" /> <c:out value=" | Total Votes: ${parks.count}" /></h4>
+</td>
 
-		<c:out value="${parks.parkDescription}" /> <br>
-
-	</div>
+	<c:out value="${parks.parkDescription}" /> <br>
+</div>
 	
 </c:forEach>
-
+	
 <%@include file="common/footer.jspf" %>
