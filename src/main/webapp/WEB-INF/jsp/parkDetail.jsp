@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@include file="common/header.jspf"%>
+<link rel="stylesheet" type="text/css" href="https://csshake.surge.sh/csshake.min.css">
 
 <c:set var="pageTitle" value="${park.parkName} Details"/>
 
@@ -219,11 +220,12 @@
 	<c:when test="${weather.forecast == 'thunderstorms'}">
 		<c:url var="weatherImg" value="/img/weather/thunderstorms.png"/>
 		<div class = "forecast">
-			<img src="${weatherImg}" />
+			<img src="${weatherImg}" class="storm" />
 			<p>High: <fmt:formatNumber maxFractionDigits="0" value="${highTemp}" /><c:out value="${tempScale}" /></p><br>
 		<p>Low: <fmt:formatNumber maxFractionDigits="0" value="${lowTemp}" /><c:out value="${tempScale}" /></p>
 		</div>
 	</c:when>
+	
 	</c:choose>
 </section>
 
@@ -251,9 +253,15 @@
 			<p>High: <fmt:formatNumber maxFractionDigits="0" value="${highTemp}" /><c:out value="${tempScale}" /></p><br>
 		<p>Low: <fmt:formatNumber maxFractionDigits="0" value="${lowTemp}" /><c:out value="${tempScale}" /></p>
 		</c:when>
+			<c:when test="${weather.forecast == 'thunderstorms'}">
+		<c:url var="weatherImg" value="/img/weather/thunderstorms.png"/>
+			<img src="${weatherImg}" class="storm"/>
+			<p>High: <fmt:formatNumber maxFractionDigits="0" value="${highTemp}" /><c:out value="${tempScale}" /></p><br>
+		<p>Low: <fmt:formatNumber maxFractionDigits="0" value="${lowTemp}" /><c:out value="${tempScale}" /></p>
+		</c:when>
 	<c:otherwise>
 	<c:url var="weatherImg" value="/img/weather/${weather.forecast}.png" />
-		<img src="${weatherImg}" />
+		<img src="${weatherImg}"/>
 		<p>High: <fmt:formatNumber maxFractionDigits="0" value="${highTemp}" /><c:out value="${tempScale}" /></p><br>
 		<p>Low: <fmt:formatNumber maxFractionDigits="0" value="${lowTemp}" /><c:out value="${tempScale}" /></p>
 	</c:otherwise>
