@@ -5,8 +5,10 @@
 <c:url var="submitSurvey" value="/Survey"/>
 <h1>Daily Survey</h1>
 <br/>
-	<form action="${submitSurvey}" method="POST" >
-		<label for="favoritePark">Favorite National Park</label>
+
+<div class = "formForSurvey">
+	<form action="${submitSurvey}" method="POST" ><br>
+		<label for="favoritePark">Favorite National Park</label><br>
 			<select name="parkCode" required>
 				<option value="GNP">Glacier National Park</option>
 				<option value="GCNP">Grand Canyon National Park</option>
@@ -19,13 +21,13 @@
 				<option value="CVNP">Cuyahoga Valley National Park</option>
 				<option value="RMNP">Rocky Mountain National Park</option>
 			
-          </select>
+          </select><br>
 			<div class="formGroup">
-		<label for="email"> Enter your E-mail address:</label> <input type="text"
+		<label for="email"> Enter your E-mail address:</label><br> <input type="text"
 			name="email" id="email" required/>
 	</div>
 
-<p> <label for="state">State: </label> 	
+<p> <label for="state">State: </label> <br>	
 <select name="state" id="state">
 	<option value="AL">Alabama</option>
 	<option value="AK">Alaska</option>
@@ -81,14 +83,14 @@
 </select>				
 </p>	
 
-<label for="activitylevel">Activity Level</label><br/>
+<label for="activitylevel">Activity Level</label><br>
   <input type="radio" name="activitylevel" value="Active" required> Active
   <input type="radio" name="activitylevel" value="Inactive"> Inactive
   <input type="radio" name="activitylevel" value="Sedentary"> Sedentary
   <input type="radio" name="activitylevel" value="Extraactive"> Extra Active
-  
+  <br>
 	<input class="formSubmitButton" type="submit" value="Submit"/>
 
 </form>
-
+</div>
 <%@include file="common/footer.jspf" %>

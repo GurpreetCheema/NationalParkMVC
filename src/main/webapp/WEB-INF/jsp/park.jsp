@@ -18,7 +18,7 @@
 		<a href="${parkDetailPageUrl}"><div class="btn btn-success">${parks.parkName} Details</div></a><br>
 	 	<br/>
 	 	</div>
-	 	<hr>
+	 	<hr class ="styleHr">
 </c:forEach>
 
 
