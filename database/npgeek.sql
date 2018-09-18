@@ -11,7 +11,7 @@ CREATE TABLE park
 	acreage INTEGER NOT NULL,
 	elevationInFeet INTEGER NOT NULL,
 	milesOfTrail REAL NOT NULL,
-	numberOfCampsites INTEGER NOT NULL,
+	numberOfCampsite s INTEGER NOT NULL,
 	climate VARCHAR(100) NOT NULL,
 	yearFounded INTEGER NOT NULL,
 	annualVisitorCount INTEGER NOT NULL,

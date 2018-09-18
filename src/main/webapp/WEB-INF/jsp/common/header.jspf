@@ -25,8 +25,12 @@
          <br>
          
 <div class="topnav">
-  <a class="active" href="/m3-java-capstone/">Home</a>
-  <a href="/m3-java-capstone/Survey">Survey</a>
+ <c:url var="homeUrl" value="/"/>
+
+ <a class="active" href="${homeUrl}">Home</a>
+ <c:url var="surveyUrl" value="/Survey"/>
+   <a class="active" href="${surveyUrl}">Survey</a>
+  
 </div>
          
          <br>
